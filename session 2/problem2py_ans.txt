@@ -1,0 +1,12 @@
+    count_list=[]
+    for i in range(len(queries)):
+        count=0
+        for j in range(len(strings)):
+            if(queries[i]==strings[j]):
+                count=count+1
+            else:
+                continue
+        count_list.append(count)
+    return(count_list)
+
+#add the above code in the function given in the question.

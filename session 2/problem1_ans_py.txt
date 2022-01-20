@@ -1,0 +1,12 @@
+    size=math.floor(len(a)/2)
+    print(size)
+    
+    for i in range(0,size):
+        temp=a[i]
+        a[i]=a[len(a)-i-1]
+        a[len(a)-i-1]=temp
+    return(a)
+#add the above code in the function.
+#floor-to find greatest int value not greater than x.
+#ceil-to find greatest int value not less than x.
+        
