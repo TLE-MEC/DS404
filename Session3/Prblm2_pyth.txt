@@ -1,0 +1,39 @@
+#Program to check if an expression has duplicate paranthesis
+
+stack = []
+size = 10
+
+def push(x):                    #Push function         
+    if len(stack)<size:
+        stack.append(x);
+    else:
+        print("Stack Overflow!");
+        
+def pop():                     #Pop function
+    if len(stack)==10:
+        print("Stack Underflow")
+    else:
+        del(stack[-1])
+def peek():                   #Peek function
+        return stack[-1]
+    
+def check(a):
+    string = a         #String to be checked
+    for s in string:
+        if s != ")":   #If current character is not ')' push it into stack
+            push(s)
+        else:
+            if peek()=="(":     
+                return True
+            while(peek()!="("):   #Pop from stack till '(' is reached
+                pop()
+            pop()
+    return False
+
+x = "((x+y)+((z)))"
+if check(x) == True:
+    print("Duplicate brackets found!")
+else:
+    print("Duplicate brackets not found!")
+    
+    
