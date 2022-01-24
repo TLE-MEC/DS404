@@ -1,0 +1,66 @@
+//Program to reverse a string
+
+#include <iostream>
+using namespace std;
+
+char stack[10], top = -1, size = 10;
+
+bool isEmpty()
+{
+    if(top == -1)
+        return true;
+    else
+        return false;
+}
+
+bool isFull()
+{
+    if(top == size-1)
+        return true;
+    else
+        return false;
+}
+
+void push(int x)
+{
+    if(!isFull())
+    {
+        top = top + 1;
+        stack[top] = x;
+    }
+    else
+        cout<<"Stack Overflow!!\n";
+}
+
+void pop()
+{
+    if(!isEmpty())
+        top = top - 1;
+    else
+        cout<<"Stack Underflow!!\n";
+}
+
+void peek()
+{
+    if(!isEmpty())
+        cout<<stack[top]<<"\n";
+    else
+        cout<<"Stack is empty\n";
+}
+
+int main()
+{
+    string s = "cubo";                     //String to be reversed
+    string ans = "";
+    for(char x:s)                            //Push each character into stack
+    {
+        push(x);
+    }
+    while(!isEmpty())                    //Pop from stack and append to a string
+    {
+        ans = ans + stack[top];
+        pop();
+    } 
+    cout<<ans;                             //Reversed string
+    return 0;
+}
