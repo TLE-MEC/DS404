@@ -1,0 +1,35 @@
+#Program to reverse a string
+
+stack = []
+size = 10
+
+def push(x):                    #Push function         
+    if len(stack)<size:
+        stack.append(x);
+    else:
+        print("Stack Overflow!");
+        
+def pop():                     #Pop function
+    if len(stack)==10:
+        print("Stack Underflow")
+    else:
+        del(stack[-1])
+def peek():                   #Peek function
+        return stack[-1]
+    
+def check(a):
+    string = a        
+    temp = []                 #Temporary variable
+    ans = ""
+    for s in string:          #Push each cahracter into the stack
+        push(s)
+    while(len(stack)>0):      #Pop from stack and add it to new list
+        temp.append(peek())
+        pop()
+    for s in temp:            #Convert list to string
+        ans+=s
+    print(ans)
+
+x = "Cubo"              #String to be reversed
+check(x)
+    
